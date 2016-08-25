@@ -1,0 +1,27 @@
+{
+    "formId": "platform",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "platform"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "platform",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Quai",
+          "iconType":"ic_marker_train_station",
+          "minZoom":"minZoom17",
+          "catId":5
+        },
+    "defaultTags":{
+          "railway":"platform"
+        }
+}

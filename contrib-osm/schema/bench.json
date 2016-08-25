@@ -1,0 +1,88 @@
+{
+    "formId": "bench",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "bench"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "bench",
+        "properties": {
+              "backrest": {
+                  "title": "Dossier",
+                  "type": "string",
+                  "key" : "backrest",
+                  "display":true
+                },
+              "helpBackrest": {
+                  "title": "Help Message",
+                  "type": "string",
+                  "description": "Dossier",
+                  "display":false
+                },
+              "seats": {
+                "type": "string",
+                "key" : "seats",
+                "title": "Nombre de places",
+                "display":true
+              }
+        }
+    },
+    "form": [
+      {
+        "key": "helpBackrest",
+        "type": "help"
+      },
+      {
+        "key": "backrest",
+        "type": "radios",
+        "titleMap": [
+          {
+            "value": "yes",
+            "name": "Disponible"
+          },
+          {
+            "value": "no",
+            "name": "Non disponible"
+          }
+          ]
+      },
+      {
+          "key": "seats",
+          "type": "select",
+          "titleMap": [
+            {
+              "value": "2",
+              "name": "2"
+            },
+            {
+              "value": "3",
+              "name": "3"
+            },
+            {
+              "value": "4",
+              "name": "4"
+            },
+            {
+              "value": "5",
+              "name": "5"
+            },
+            {
+              "value": "6",
+              "name": "6"
+            }
+            ]
+        }
+    ],
+    "specifics":{
+          "poiName":"Banc",
+          "iconType":"ic_marker_bench",
+          "minZoom":"minZoom19",
+          "catId":7
+        },
+    "defaultTags":{
+          "amenity":"bench"
+        }
+}

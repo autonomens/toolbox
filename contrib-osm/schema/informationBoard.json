@@ -1,0 +1,34 @@
+{
+    "formId": "informationBoard",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "informationBoard"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "informationBoard",
+        "properties": {
+          "operator": {
+            "title": "Gestionnaire",
+            "type": "string",
+            "key" : "operator",
+            "display":true,
+            "arrayValue":["SNCF","RATP"]
+          }
+        }
+    },
+    "form": [
+    ],
+    "specifics":{
+          "poiName":"Affiche information voyageur",
+          "iconType":"ic_marker_information_board",
+          "minZoom":"minZoom17",
+          "catId":8
+        },
+    "defaultTags":{
+          "tourism":"information",
+          "information":"board"
+        }
+}

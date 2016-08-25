@@ -1,0 +1,346 @@
+{
+  "ic_marker_bank": {
+    "x": 117,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+    "ic_marker_bench": {
+    "x": 585,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_bench_stand_up": {
+    "x": 0,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_bicycle": {
+    "x": 117,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_clock": {
+    "x": 234,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_courtesy_phone": {
+    "x": 234,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_defibrillator": {
+    "x": 0,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_emergency_point": {
+    "x": 117,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_emergency_telephone": {
+    "x": 234,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_entrance": {
+    "x": 351,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_fireextinguisher": {
+    "x": 351,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_highway_busstop": {
+    "x": 351,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_highway_elevator": {
+    "x": 0,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_highway_steps": {
+    "x": 117,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_information": {
+    "x": 234,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+    "ic_marker_information_board": {
+    "x": 351,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+   "ic_marker_information_map": {
+    "x": 468,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+    "ic_marker_information_terminal": {
+    "x": 468,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_lost_property": {
+    "x": 468,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_meeting_point": {
+    "x": 468,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_parking": {
+    "x": 585,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_photo_booth": {
+    "x": 0,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_piano": {
+    "x": 585,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_post_box": {
+    "x": 585,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_post_pickup": {
+    "x": 0,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_printer": {
+    "x": 117,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_railway_crossing": {
+    "x": 234,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_railway_stop": {
+    "x": 351,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_recycling": {
+    "x": 468,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_restaurant": {
+    "x": 585,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_shelter": {
+    "x": 702,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_shop": {
+    "x": 702,
+    "y": 143,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_taxi": {
+    "x": 702,
+    "y": 286,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_telephone": {
+    "x": 702,
+    "y": 429,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_ticket_validator": {
+    "x": 702,
+    "y": 572,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_toilets": {
+    "x": 0,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_train_station": {
+    "x": 117,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_turnstile": {
+    "x": 234,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_vending_machine": {
+    "x": 351,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_vending_tickets": {
+    "x": 468,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_waste_basket": {
+    "x": 585,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "ic_marker_wlan": {
+    "x": 702,
+    "y": 715,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  },
+      "pin": {
+    "x": 819,
+    "y": 0,
+    "width": 116,
+    "height": 142,
+    "pixelRatio": 1,
+    "sdf": false
+  }
+}

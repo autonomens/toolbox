@@ -1,0 +1,27 @@
+{
+    "formId": "fireExtinguisher",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "fireExtinguisher"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "fireExtinguisher",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Extincteur",
+          "iconType":"ic_marker_fireextinguisher",
+          "minZoom":"minZoom19",
+          "catId":6
+        },
+    "defaultTags":{
+          "emergency":"fireExtinguisher"
+        }
+}

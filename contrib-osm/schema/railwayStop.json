@@ -1,0 +1,45 @@
+{
+    "formId": "railwayStop",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "railwayStop"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "railwayStop",
+        "properties": {
+            "local_ref": {
+              "title": "Num voie",
+              "type": "string",
+              "key" : "local_ref",
+              "display":true
+            },
+            "from": {
+              "title": "Terminus provenance",
+              "type": "string",
+              "key" : "from",
+              "display":true
+            },
+            "to": {
+              "title": "Terminus destination",
+              "type": "string",
+              "key" : "to",
+              "display":true
+            }
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Point d'arrêt du train",
+          "iconType":"ic_marker_railway_stop",
+          "minZoom":"minZoom17",
+          "catId":2
+        },
+    "defaultTags":{
+          "railway":"stop"
+        }
+}

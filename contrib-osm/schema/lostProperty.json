@@ -1,0 +1,28 @@
+{
+    "formId": "lostProperty",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "lostProperty"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "lostProperty",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Objets trouvés",
+          "iconType":"ic_marker_lost_property",
+          "minZoom":"minZoom17",
+          "catId":3
+        },
+    "defaultTags":{
+          "information":"office",
+          "lost_property":"yes"
+        }
+}

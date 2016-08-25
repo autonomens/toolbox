@@ -1,0 +1,66 @@
+{
+    "formId": "informationTerminal",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "informationTerminal"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "informationTerminal",
+        "properties": {
+          "operator": {
+            "title": "Gestionnaire",
+            "type": "string",
+            "key" : "operator",
+            "display":true,
+            "arrayValue":["SNCF","RATP"]
+          },
+          "terminal_type": {
+            "title": "Type d'écran",
+            "type": "string",
+            "key" : "terminal_type",
+            "display":true
+          }
+        }
+    },
+    "form": [
+      {
+        "key": "terminal_type",
+        "type": "select",
+        "titleMap": [
+          {
+            "value": "arrival_board",
+            "name": "Ecran des arrivées"
+          },
+          {
+            "value": "departure_board",
+            "name": "Ecran des départs"
+          },
+          {
+            "value": "both_board",
+            "name": "Ecran arrivées/departs"
+          },
+          {
+            "value": "car_location_board",
+            "name": "Emplacement des wagons"
+          },
+          {
+            "value": "Arrêts desservis",
+            "name": "RATP"
+          }
+          ]
+      }
+    ],
+    "specifics":{
+          "poiName":"Écran information voyageur",
+          "iconType":"ic_marker_information_terminal",
+          "minZoom":"minZoom17",
+          "catId":8
+        },
+    "defaultTags":{
+          "tourism":"information",
+          "information":"terminal"
+        }
+}

@@ -1,0 +1,40 @@
+{
+    "formId": "ticketValidator",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "ticketValidator"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "ticketValidator",
+        "properties": {
+          "operator": {
+            "title": "Gestionnaire",
+            "type": "string",
+            "key": "operator",
+            "display": true,
+            "arrayValue":["SNCF","RATP"]
+          },
+          "network": {
+            "title": "Réseaux disponibles",
+            "type": "string",
+            "key": "network",
+            "display": true,
+            "arrayValue":["Grandes lignes","RATP","Transilien"]
+          }
+        }
+    },
+    "form": [
+    ],
+    "specifics":{
+          "poiName":"Valideur de billets",
+          "iconType":"ic_marker_ticket_validator",
+          "minZoom":"minZoom19",
+          "catId":8
+        },
+    "defaultTags":{
+          "amenity":"ticket_validator"
+        }
+}

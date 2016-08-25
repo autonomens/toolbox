@@ -1,0 +1,27 @@
+{
+    "formId": "crossing",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "crossing"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "crossing",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Passage piéton",
+          "iconType":"ic_marker_railway_crossing",
+          "minZoom":"minZoom17",
+          "catId":5
+        },
+    "defaultTags":{
+          "railway":"crossing"
+        }
+}

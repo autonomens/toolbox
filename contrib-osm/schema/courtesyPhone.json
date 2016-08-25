@@ -1,0 +1,41 @@
+{
+  "formId": "courtesyPhone",
+  "version": 1,
+  "action": [
+    {
+      "title": "courtesyPhone"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "courtesyPhone",
+    "properties": {
+      "ref": {
+        "title": "Numéro de référence",
+        "key": "ref",
+        "type": "string",
+        "display": true
+      },
+      "operator": {
+        "title": "Gestionnaire",
+        "type": "string",
+        "key": "operator",
+        "display": true,
+        "arrayValue":["SNCF","RATP"]
+      }
+    }
+  },
+  "form": [
+    "ref"
+  ],
+  "specifics": {
+    "poiName": "Interphone",
+    "iconType": "ic_marker_courtesy_phone",
+    "minZoom": "minZoom19",
+    "catId": 8
+  },
+  "defaultTags": {
+    "tourism": "information",
+    "information": "courtesy_phone"
+  }
+}

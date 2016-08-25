@@ -1,0 +1,28 @@
+{
+    "formId": "shelter",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "shelter"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "shelter",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Abri voyageurs",
+          "iconType":"ic_marker_shelter",
+          "minZoom":"minZoom17",
+          "catId":5
+        },
+    "defaultTags":{
+          "amenity":"shelter",
+          "shelter_type":"public_transport"
+        }
+}

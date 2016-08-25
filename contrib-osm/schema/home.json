@@ -1,0 +1,159 @@
+{
+  "formId": "home",
+  "version": 1,
+  "action": [
+    {
+      "title": "home"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "home",
+    "properties": {
+      "operator": {
+        "title": "Gestionnaire",
+        "type": "string",
+        "key": "operator",
+        "display": true,
+        "arrayValue":["SNCF","RATP"]
+      },
+      "supervised": {
+        "title": "Présence de personnel",
+        "type": "string",
+        "key": "supervised",
+        "display": true
+      },
+      "helpSupervised": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Présence de personnel",
+        "display": false
+      },
+      "lost_property": {
+        "title": "Objets trouvés",
+        "type": "string",
+        "key": "lost_property",
+        "display": true
+      },
+      "helpLost": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Objets trouvés",
+        "display": false
+      },
+      "wheelchair": {
+        "title": "Accès fauteuil roulant",
+        "type": "string",
+        "key": "wheelchair",
+        "display": true
+      },
+      "helpWheelChair": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Accès fauteuil roulant",
+        "display": false
+      },
+      "service:SNCF:acces_plus": {
+        "title": "Service Accès Plus",
+        "type": "string",
+        "key": "service:SNCF:acces_plus",
+        "display": true
+      },
+      "helpPlus": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Service Accès Plus",
+        "display": false
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "helpSupervised",
+      "type": "help"
+    },
+    {
+      "key": "supervised",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Oui"
+        },
+        {
+          "value": "no",
+          "name": "Non"
+        }
+      ]
+    },
+    {
+      "key": "helpLost",
+      "type": "help"
+    },
+    {
+      "key": "lost_property",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Disponible"
+        },
+        {
+          "value": "no",
+          "name": "Non disponible"
+        }
+      ]
+    },
+    {
+      "key": "helpWheelChair",
+      "type": "help"
+    },
+    {
+      "key": "wheelchair",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Complet"
+        },
+        {
+          "value": "limited",
+          "name": "Restreint"
+        },
+        {
+          "value": "no",
+          "name": "Impossible"
+        }
+      ]
+    },
+    {
+      "key": "helpPlus",
+      "type": "help"
+    },
+    {
+      "key": "service:SNCF:acces_plus",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Disponible"
+        },
+        {
+          "value": "no",
+          "name": "Non disponible"
+        }
+      ]
+    }
+  ],
+  "specifics": {
+    "poiName": "Accueil",
+    "iconType": "ic_marker_information",
+    "minZoom": "minZoom17",
+    "catId": 3
+  },
+  "defaultTags": {
+    "tourism": "information",
+    "information": "office",
+    "room": "office"
+  }
+}

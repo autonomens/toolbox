@@ -1,0 +1,12 @@
+{
+  "categories":[
+    { "catId": "1","catName": "Titre de transport","color":"#9e2970"},
+    { "catId": "2","catName": "Accès et autres modes de transport","color":"#d1336e"},
+    { "catId": "3","catName": "Services pratiques","color":"#ed760e"},
+    { "catId": "4","catName": "Boutiques du quotidien","color":"#38b5c7"},
+    { "catId": "5","catName": "Structure de la gare","color":"#e8b130"},
+    { "catId": "6","catName": "Urgence","color":"#d13505"},
+    { "catId": "7","catName": "Autres équipements en gare","color":"#947f64"},
+    { "catId": "8","catName": "Équipements SNCF","color":"#4f3e6a"}
+  ]
+}

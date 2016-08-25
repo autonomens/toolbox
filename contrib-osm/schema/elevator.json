@@ -1,0 +1,101 @@
+{
+    "formId": "elevator",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "elevator"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "elevator",
+        "properties": {
+          "wheelchair": {
+            "title": "Accès fauteuil roulant",
+            "type": "string",
+            "key": "wheelchair",
+            "display": true
+          },
+          "helpWheelChair": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Accès fauteuil roulant",
+            "display": false
+          },
+          "access": {
+            "title": "Ouverture au public",
+            "type": "string",
+            "key": "access",
+            "display": true
+          },
+          "helpAccess": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Ouverture au public",
+            "display": false
+          },
+          "ref": {
+            "title": "Numéro de référence",
+            "key": "ref",
+            "type": "string",
+            "display": true
+          }
+        }
+    },
+    "form": [
+      "ref",
+      {
+        "key": "helpWheelChair",
+        "type": "help"
+      },
+      {
+        "key": "wheelchair",
+        "type": "radios",
+        "titleMap": [
+          {
+            "value": "yes",
+            "name": "Complet"
+          },
+          {
+            "value": "limited",
+            "name": "Restreint"
+          },
+          {
+            "value": "no",
+            "name": "Impossible"
+          }
+        ]
+      },
+      {
+        "key": "helpAccess",
+        "type": "help"
+      },
+      {
+        "key": "access",
+        "type": "radios",
+        "titleMap": [
+          {
+            "value": "public",
+            "name": "Complète"
+          },
+          {
+            "value": "customer",
+            "name": "Réservée aux clients"
+          },
+          {
+            "value": "private",
+            "name": "Interdite au public"
+          }
+        ]
+      }
+    ],
+    "specifics":{
+          "poiName":"Ascenseur",
+          "iconType":"ic_marker_highway_elevator",
+          "minZoom":"minZoom17",
+          "catId":5
+        },
+    "defaultTags":{
+          "highway":"elevator"
+        }
+}

@@ -1,0 +1,27 @@
+{
+    "formId": "wasteBasket",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "wasteBasket"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "wasteBasket",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Poubelle",
+          "iconType":"ic_marker_waste_basket",
+          "minZoom":"minZoom19",
+          "catId":7
+        },
+    "defaultTags":{
+          "amenity":"waste_basket"
+        }
+}

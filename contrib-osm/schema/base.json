@@ -1,0 +1,27 @@
+{
+    "formId": "ID",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "ID"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "ID",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Nom du type",
+          "iconType":"image",
+          "minZoom":"minZoom17",
+          "catId":4
+        },
+    "defaultTags":{
+          "railway":"stop"
+        }
+}

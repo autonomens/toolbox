@@ -1,0 +1,161 @@
+{
+  "formId": "vendingMachine",
+  "version": 1,
+  "action": [
+    {
+      "title": "vendingMachine"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "vendingMachine",
+    "properties": {
+      "wheelchair": {
+        "title": "Accès fauteuil roulant",
+        "type": "string",
+        "key": "wheelchair",
+        "display": true
+      },
+      "helpWheelChair": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Accès fauteuil roulant",
+        "display": false
+      },
+      "payment:coins": {
+        "title": "Pièces acceptées",
+        "type": "string",
+        "key": "payment:coins",
+        "display": true
+      },
+      "helpCoins": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Pièces acceptées",
+        "display": false
+      },
+      "payment:notes": {
+        "title": "Billets acceptés",
+        "type": "string",
+        "key": "payment:notes",
+        "display": true
+      },
+      "helpNotes": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Billets acceptés",
+        "display": false
+      },
+      "vending": {
+        "title": "Produits vendus",
+        "type": "string",
+        "key": "vending",
+        "display": true
+      },
+      "helpVending": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Produits vendus",
+        "display": false
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "helpWheelChair",
+      "type": "help"
+    },
+    {
+      "key": "wheelchair",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Complet"
+        },
+        {
+          "value": "limited",
+          "name": "Restreint"
+        },
+        {
+          "value": "no",
+          "name": "Impossible"
+        }
+      ]
+    },
+    {
+      "key": "helpCoins",
+      "type": "help"
+    },
+    {
+      "key": "payment:coins",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Oui"
+        },
+        {
+          "value": "no",
+          "name": "Non"
+        }
+      ]
+    },
+    {
+      "key": "helpNotes",
+      "type": "help"
+    },
+    {
+      "key": "payment:notes",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Oui"
+        },
+        {
+          "value": "no",
+          "name": "Non"
+        }
+      ]
+    },
+    {
+      "key": "helpVending",
+      "type": "help"
+    },
+    {
+      "key": "vending",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "drinks",
+          "name": "Boissons"
+        },
+        {
+          "value": "food",
+          "name": "Snacks"
+        },
+        {
+          "value": "sweets",
+          "name": "Friandises"
+        },
+        {
+          "value": "coffee",
+          "name": "Café"
+        }
+      ]
+    }
+  ],
+  "specifics": {
+    "poiName": "Distributeur de confiseries",
+    "iconType": "ic_marker_vending_machine",
+    "minZoom": "minZoom17",
+    "catId": 4
+  },
+  "defaultTags": {
+    "amenity": "vending_machine"
+  },
+  "extensionTags": {
+    "vending": "drinks;food;sweets"
+  }
+}

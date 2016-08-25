@@ -1,0 +1,33 @@
+{
+    "formId": "cashMachine",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "cashMachine"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "cashMachine",
+        "properties": {
+          "operator": {
+            "title": "Nom de la banque",
+            "key": "operator",
+            "type": "string",
+            "display": true
+          }
+        }
+    },
+    "form": [
+        "operator"
+    ],
+    "specifics":{
+          "poiName":"Distributeur de billets",
+          "iconType":"ic_marker_bank",
+          "minZoom":"minZoom19",
+          "catId":3
+        },
+    "defaultTags":{
+          "amenity":"atm"
+        }
+}

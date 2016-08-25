@@ -1,0 +1,46 @@
+{
+    "formId": "principalDoor",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "principalDoor"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "principalDoor",
+        "properties": {
+          "name": {
+            "title": "Nom",
+            "key" : "name",
+            "type": "string",
+            "display":true
+          },
+          "ref": {
+            "title": "Numéro de référence",
+            "key" : "ref",
+            "type": "string",
+            "display":true
+          },
+          "exit_to": {
+            "title": "Nom de la rue de sortie",
+            "key" : "exit_to",
+            "type": "string",
+            "display":true
+          }
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Entrée principale de la gare",
+          "iconType":"ic_marker_entrance",
+          "minZoom":"minZoom17",
+          "catId":5
+        },
+    "defaultTags":{
+          "entrance":"main",
+          "railway" : "train_station_entrance"
+        }
+}

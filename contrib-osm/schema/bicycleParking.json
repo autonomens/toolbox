@@ -1,0 +1,100 @@
+{
+    "formId": "bicycleParking",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "bicycleParking"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "bicycleParking",
+        "properties": {
+          "operator": {
+            "title": "Gestionnaire",
+            "type": "string",
+            "key" : "operator",
+            "display":true,
+            "arrayValue":["SNCF","MAIRIE"]
+          },
+          "covered": {
+            "title": "Protégé par un toit",
+            "type": "string",
+            "key" : "covered",
+            "display":true
+          },
+          "helpCover": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Protégé par un toit",
+            "display":false
+          },
+          "bicycle_parking": {
+            "type": "string",
+            "key" : "bicycle_parking",
+            "title": "Type de parking",
+            "display":true
+          },
+          "capacity": {
+            "title": "Nombre de places",
+            "key" : "capacity",
+            "type": "string",
+            "display":true
+          }
+        }
+    },
+    "form": [  {
+        "key": "bicycle_parking",
+        "type": "select",
+        "titleMap": [
+          {
+            "value": "shed",
+            "name": "Abri sécurisé"
+          },
+          {
+            "value": "lockers",
+            "name": "Cabine individuelle"
+          },
+          {
+            "value": "stands",
+            "name": "Arceau"
+          },
+          {
+            "value": "bollard",
+            "name": "Barre d'attache"
+          },
+          {
+            "value": "wall_loops",
+            "name": "Rack au sol"
+          }
+          ]
+      }, "capacity",
+        {
+          "key": "helpCover",
+          "type": "help"
+        },
+        {
+          "key": "covered",
+          "type": "radios",
+          "titleMap": [
+            {
+              "value": "yes",
+              "name": "Oui"
+            },
+            {
+              "value": "no",
+              "name": "Non"
+            }
+            ]
+        }
+    ],
+    "specifics":{
+          "poiName":"Parking à vélos",
+          "iconType":"ic_marker_bicycle",
+          "minZoom":"minZoom17",
+          "catId":2
+        },
+    "defaultTags":{
+          "amenity":"bicycle_parking"
+        }
+}

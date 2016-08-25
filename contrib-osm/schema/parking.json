@@ -1,0 +1,147 @@
+{
+    "formId": "parking",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "parking"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "parking",
+        "properties": {
+          "name": {
+            "title": "Nom",
+            "key" : "name",
+            "type": "string",
+            "display":true
+          },
+          "operator": {
+              "title": "Gestionnaire",
+              "type": "string",
+              "key" : "operator",
+              "display":true,
+              "arrayValue":["SNCF","MAIRIE"]
+          },
+          "fee": {
+              "title": "Payant",
+              "type": "string",
+              "key" : "fee",
+              "display":true
+            },
+          "helpFree": {
+              "title": "Help Message",
+              "type": "string",
+              "description": "Payant",
+              "display":false
+            },
+          "capacity": {
+            "title": "Nombre de places",
+            "key" : "capacity",
+            "type": "string",
+            "display":true
+          },
+          "name": {
+            "title": "Nom",
+            "key" : "name",
+            "type": "string",
+            "display":true
+          },
+          "wheelchair": {
+            "title": "Accès fauteuil roulant",
+            "type": "string",
+            "key" : "wheelchair",
+            "display":true
+          },
+          "helpChair": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Accès fauteuil roulant",
+            "display":false
+          },
+          "access": {
+            "title": "Accès public",
+            "type": "string",
+            "key" : "access",
+            "display":true
+          },
+          "helpAccess": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Accès public",
+            "display":false
+          }
+        }
+    },
+    "form": ["name","capacity",
+          {
+            "key": "helpChair",
+            "type": "help"
+          },{
+          "key": "wheelchair",
+          "type": "radios",
+          "titleMap": [
+            {
+              "value": "no",
+              "name": "Impossible"
+            },
+            {
+              "value": "limited",
+              "name": "Restreint"
+            },
+            {
+              "value": "yes",
+              "name": "Complet"
+            }
+          ]
+        },
+        {
+            "key": "helpAccess",
+            "type": "help"
+          },{
+          "key": "access",
+          "type": "radios",
+          "titleMap": [
+            {
+              "value": "private",
+              "name": "Parking privé"
+            },
+            {
+              "value": "customer",
+              "name": "Réservé aux clients"
+            },
+            {
+              "value": "public",
+              "name": "Oui"
+            }
+          ]
+        },
+        {
+          "key": "helpFree",
+          "type": "help"
+        },
+        {
+          "key": "fee",
+          "type": "radios",
+          "titleMap": [
+            {
+              "value": "yes",
+              "name": "Oui"
+            },
+            {
+              "value": "no",
+              "name": "Non"
+            }
+            ]
+        }
+    ],
+    "specifics":{
+          "poiName":"Parking",
+          "iconType":"ic_marker_parking",
+          "minZoom":"minZoom17",
+          "catId":2
+        },
+    "defaultTags":{
+          "amenity":"parking"
+        }
+}

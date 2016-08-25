@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TimeLine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/js/leaflet/leaflet.css" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <script type="text/javascript" src="assets/js/timelinejs/lib/jquery-min.js"></script>        
+    <script type="text/javascript" src="assets/js/timelinejs/js/storyjs-embed.js"></script>
+    <script src="assets/js/leaflet/leaflet.js"></script>
+
+    <style>
+        #map {
+            width: 400px;
+            height: 598px;
+            float: left;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        #timeline-embed {
+            float: left
+        }
+    
+        #infos {
+            clear: both;
+            padding-top: 10px;
+        }
+    </style>
+
+
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+
+  <!-- Navbar
+    ================================================== -->
+     <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">Autonomens toolbox</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              
+            </ul>
+         
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="container">
+
+      <h1>TimeLine</h1>
+      
+    
+
+
+
+
+<div class="row-fluid">         
+
+
+<!-- Description
+================================================== -->
+<section id="description">
+
+        <div id="timeline-embed"></div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                createStoryJS({
+                    type:       'timeline',
+                    width:      '700',
+                    height:     '600',
+                    source:     'data/montpellier_pae.jsonp',
+                    embed_id:   'timeline-embed',
+                    lang:       'assets/js/timelinejs/js/locale/fr.js',                           
+                    maptype:    'watercolor',                   
+                    css:        'assets/js/timelinejs/css/timeline.css',
+                    //js:         'assets/js/timelinejs/js/timeline-min.js'
+                    js:         'assets/js/timelinejs/js/timeline.js',
+                    mapviewer:  goto
+                });
+            });
+
+            // load geometries
+            $.getJSON('data/PAE.json', load);
+    
+            // Leaflet viewer
+            var map;
+            function load(pae_data) {
+                map = new L.Map('map');
+                var mc_tiles = new L.TileLayer('http://tilestream.makina-corpus.net/v2/osmlight-france/{z}/{x}/{y}.png', {
+                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://makina-corpus.com">Autonomens</a>',
+                    maxZoom: 18
+                });
+                var center = new L.LatLng(43.605, 3.88);
+                map.setView(center, 13).addLayer(mc_tiles);
+
+                
+                var style = {
+                    color: "#444444",
+                    weight: 2,
+                    opacity: 0.6,
+                    fillOpacity: 0.3,
+                    fillColor: "#444444"
+                };
+                var highlightStyle = {
+                    color: "#CC6222",  
+                    weight: 2,
+                    opacity: 0.6,
+                    fillOpacity: 0.3,
+                    fillColor: "#CC6222"
+                };
+
+                pae = new L.GeoJSON(pae_data, {
+                    style: style,
+                    onEachFeature: function (feature, layer) {
+                        layer.on("mouseover", function (e) {
+                            layer.setStyle(highlightStyle);
+                        });
+                        layer.on("mouseout", function (e) {
+                            layer.setStyle(style);
+                        });
+                        layer.on("click", function (e) {
+                            // Center timeline on
+                            console.log(e);
+                            //e.target.feature.properties.Name
+                            console.log(VMM);
+                            VMM.smoothScrollTo(e.target.feature.properties.Name);
+                            
+                        });
+                    }
+                });
+                map.addLayer(pae);       
+
+
+                var paeGroup = new L.LayerGroup();
+                paeGroup.addLayer(pae);
+                paeGroup.addTo(map);
+                paeGroup.eachLayer(function (layer) {
+                    layer.bindPopup('PAE');
+                });
+
+            }
+
+            //function goto(x,y, zoom) {
+            function goto(position) {
+                if(position != undefined) {
+                    var coords = position.split(",");
+                    var center = new L.LatLng(coords[0], coords[1]);
+                    map.panTo(center);
+                }
+            }
+        </script>
+
+        <div id="map"></div>
+
+        <div id="infos">
+        <p>
+        <strong>Données utilisées :</strong><br/>
+        "La Ville de Montpellier met en place depuis des années de nombreux Plan d'Aménagement d'Ensemble (PAE). Ainsi de nombreuses zones et de nombreux quartiers ont connu un développement de l'urbanisme afin d'améliorer la vie des ses citoyens.<br/>
+        Le Plan ou Programme d’Aménagement d’Ensemble (PAE) est un dispositif de participation des constructeurs au financement, en tout ou partie, d’un programme d’équipements publics qu’une commune, ou un EPCI, s’engage à réaliser, dans un secteur déterminé, pour répondre aux besoins des futurs habitants ou usagers des constructions à édifier de ce secteur. 
+        "<br/>Source: <a href="http://opendata.montpelliernumerique.fr/Plan-d-Amenagement-d-Ensemble">http://opendata.montpelliernumerique.fr/Plan-d-Amenagement-d-Ensemble</a>
+         </p>
+        </div>
+
+</section>
+
+</div>
+
+
+
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Revenir en haut</a></p>
+        
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/application.js"></script>
+
+
+  </body>
+</html>

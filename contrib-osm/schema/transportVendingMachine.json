@@ -1,0 +1,135 @@
+{
+  "formId": "transportVendingMachine",
+  "version": 1,
+  "action": [
+    {
+      "title": "transportVendingMachine"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "transportVendingMachine",
+    "properties": {
+      "operator": {
+        "title": "Gestionnaire",
+        "type": "string",
+        "key": "operator",
+        "display": true,
+        "arrayValue":["SNCF","RATP"]
+      },
+      "network": {
+        "title": "Réseaux disponibles",
+        "type": "string",
+        "key": "network",
+        "display": true,
+        "arrayValue":["Grandes lignes","RATP","Transilien"]
+      },
+      "wheelchair": {
+        "title": "Accès fauteuil roulant",
+        "type": "string",
+        "key": "wheelchair",
+        "display": true
+      },
+      "helpChair": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Accès fauteuil roulant",
+        "display": false
+      },
+      "payment:coins": {
+        "title": "Pièces acceptées",
+        "type": "string",
+        "key": "payment:coins",
+        "display": true
+      },
+      "helpCoins": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Pièces acceptées",
+        "display": false
+      },
+      "payment:notes": {
+        "title": "Billets acceptés",
+        "type": "string",
+        "key": "payment:notes",
+        "display": true
+      },
+      "helpNotes": {
+        "title": "Help Message",
+        "type": "string",
+        "description": "Billets acceptés",
+        "display": false
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "helpChair",
+      "type": "help"
+    },
+    {
+      "key": "wheelchair",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "no",
+          "name": "Impossible"
+        },
+        {
+          "value": "limited",
+          "name": "Restreint"
+        },
+        {
+          "value": "yes",
+          "name": "Complet"
+        }
+      ]
+    },
+    {
+      "key": "helpCoins",
+      "type": "help"
+    },
+    {
+      "key": "payment:coins",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Oui"
+        },
+        {
+          "value": "no",
+          "name": "Non"
+        }
+      ]
+    },
+    {
+      "key": "helpNotes",
+      "type": "help"
+    },
+    {
+      "key": "payment:notes",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "yes",
+          "name": "Oui"
+        },
+        {
+          "value": "no",
+          "name": "Non"
+        }
+      ]
+    }
+  ],
+  "specifics": {
+    "poiName": "Automate de ventes de billets",
+    "iconType": "ic_marker_vending_tickets",
+    "minZoom": "minZoom17",
+    "catId": 1
+  },
+  "defaultTags": {
+    "amenity": "vending_machine",
+    "vending": "public_transport_tickets"
+  }
+}

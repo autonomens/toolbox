@@ -1,0 +1,58 @@
+{
+    "formId": "informationMap",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "informationMap"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "informationMap",
+        "properties": {
+          "operator": {
+            "title": "Gestionnaire",
+            "type": "string",
+            "key" : "operator",
+            "display":true,
+            "arrayValue":["SNCF","RATP"]
+          },
+          "map_size": {
+            "title": "Echelle du plan",
+            "type": "string",
+            "key" : "map_size",
+            "display":true
+          }
+        }
+    },
+    "form": [
+      {
+      "key": "map_size",
+      "type": "select",
+      "titleMap": [
+        {
+          "value": "site",
+          "name": "Gare"
+        },
+        {
+          "value": "neighbourhood",
+          "name": "Quartier"
+        },
+        {
+          "value": "network",
+          "name": "Réseau de transport"
+        }
+        ]
+      }
+    ],
+    "specifics":{
+          "poiName":"Carte réseau transport",
+          "iconType":"ic_marker_information_map",
+          "minZoom":"minZoom17",
+          "catId":8
+        },
+    "defaultTags":{
+          "tourism":"information",
+          "information":"map"
+        }
+}

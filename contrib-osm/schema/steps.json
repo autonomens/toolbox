@@ -1,0 +1,67 @@
+{
+    "formId": "steps",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "steps"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "steps",
+        "properties": {
+          "step_count": {
+            "title": "Nombre de marches",
+            "key": "step_count",
+            "type": "string",
+            "display": true
+          },
+          "handrail": {
+            "title": "Rambarde",
+            "type": "string",
+            "key": "handrail",
+            "display": true
+          },
+          "helpHandrail": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Rambarde",
+            "display": false
+          }
+        }
+    },
+    "form": [
+        "step_count",
+        {
+          "key": "helpHandrail",
+          "type": "help"
+        },
+        {
+          "key": "handrail",
+          "type": "radios",
+          "titleMap": [
+            {
+              "value": "yes",
+              "name": "Un côté"
+            },
+            {
+              "value": "double",
+              "name": "Deux côtés"
+            },
+            {
+              "value": "no",
+              "name": "Non"
+            }
+          ]
+        }
+    ],
+    "specifics":{
+          "poiName":"Escalier",
+          "iconType":"ic_marker_highway_steps",
+          "minZoom":"minZoom17",
+          "catId":5
+        },
+    "defaultTags":{
+          "highway":"steps"
+        }
+}

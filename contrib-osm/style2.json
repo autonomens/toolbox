@@ -1,0 +1,475 @@
+{
+    "version": 8,
+    "name": "Streets",
+    "center": [
+        2.3770353198051453,
+        48.82972913478474
+    ],
+    "zoom": 5,
+    "sources": {
+        "intramurosm": {
+            "type": "vector",
+            "tiles": [
+                "http://intramur-vecto.makina-corpus.net/default/all/{z}/{x}/{y}.pbf"
+            ]
+        }
+    },
+    "sprite": "sprite",
+    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "background-color": "#ede9d9"
+            }
+        },
+        {
+            "id": "landuse",
+            "type": "fill",
+            "source": "intramurosm",
+            "source-layer": "landuse",
+            "paint": {
+                "fill-color": "#ddecb1",
+                "fill-opacity": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            9,
+                            0
+                        ],
+                        [
+                            16,
+                            0.6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterways",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "waterways",
+            "paint": {
+                "fill-color": "#C4EDEA",
+                "fill-opacity": 0.5
+            }
+        },
+        {
+            "id": "roads",
+            "type": "line",
+            "source": "intramurosm",
+            "source-layer": "roads",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            12.5,
+                            0.5
+                        ],
+                        [
+                            14,
+                            2
+                        ],
+                        [
+                            18,
+                            18
+                        ]
+                    ]
+                },
+                "line-color": "#fff"
+            }
+        },
+        {
+            "id": "buildings",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "buildings",
+            "paint": {
+                "fill-color": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            7,
+                            "#ede9d9"
+                        ],
+                        [
+                            16,
+                            "#e8e0cc"
+                        ]
+                    ]
+                },
+                "fill-opacity": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            12,
+                            0
+                        ],
+                        [
+                            16,
+                            0.8
+                        ],
+                        [
+                            18,
+                            1
+                        ]
+                    ]
+                },
+                "fill-outline-color": "#d0cbbb"
+            }
+        },
+        {
+            "id": "background-2",
+            "type": "background",
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "background-color": "#1b8f36",
+                "background-opacity": 0.6
+            }
+        },
+        {
+            "id": "trainstation_background",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation",
+            "paint": {
+                "fill-color": "#dddbd7"
+            }
+        },
+        {
+            "id": "trainstation",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {
+                "line-join": "round"
+            },
+            "source-layer": "trainstation",
+            "paint": {
+                "line-dasharray": [
+                    1,
+                    1
+                ],
+                "line-color": "#ead629",
+                "line-width": 5
+            }
+        },
+        {
+            "id": "trainstation_indoor",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_indoor",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#b2b1ae"
+            }
+        },
+        {
+            "id": "trainstation_shops",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_shops",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "fill-color": "#38b6c8",
+                "fill-opacity": 0.3,
+                "fill-outline-color": "#38b6c8"
+            }
+        },
+        {
+            "id": "trainstation_shops_line",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_shops",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#38b6c8",
+                "line-width": 2
+            }
+        },
+        {
+            "id": "trainstation_shops_sncf",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_shops_sncf",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "fill-color": "#99276e",
+                "fill-opacity": 0.3,
+                "fill-outline-color": "#99276e"
+            }
+        },
+        {
+            "id": "trainstation_shops_sncf_line",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_shops_sncf",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#99276e",
+                "line-width": 2
+            }
+        },
+        {
+            "id": "trainstation_no_public",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_no_public",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "fill-color": "#7a766f",
+                "fill-opacity": 0.3,
+                "fill-outline-color": "#7a766f"
+            }
+        },
+        {
+            "id": "trainstation_no_public_line",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "trainstation_no_public",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#7a766f",
+                "line-width": 2
+            }
+        },
+        {
+            "id": "platform",
+            "type": "fill",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "platform",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "fill-color": "#978061",
+                "fill-opacity": 0.3
+            }
+        },
+        {
+            "id": "steps",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "steps",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#575454",
+                "line-width": 10,
+                "line-dasharray": [
+                    0.3,
+                    0.15
+                ]
+            }
+        },
+        {
+            "id": "escalator",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "escalator",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#8a8787",
+                "line-width": 10,
+                "line-dasharray": [
+                    0.3,
+                    0.15
+                ]
+            }
+        },
+        {
+            "id": "wall",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "wall",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#666666",
+                "line-width": 4
+            }
+        },
+        {
+            "id": "barrier",
+            "type": "line",
+            "source": "intramurosm",
+            "layout": {},
+            "source-layer": "barrier",
+            "filter": [
+                "==",
+                "level",
+                99
+            ],
+            "paint": {
+                "line-color": "#666666",
+                "line-width": 2
+            }
+        },
+        {
+            "id": "road-rail",
+            "type": "line",
+            "source": "intramurosm",
+            "source-layer": "railways",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": {
+                    "stops": [
+                        [
+                            13,
+                            "#d8d5c8"
+                        ],
+                        [
+                            16,
+                            "#b3b1a6"
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            14,
+                            0.5
+                        ],
+                        [
+                            20,
+                            1
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "road-rail-chevron",
+            "type": "line",
+            "source": "intramurosm",
+            "source-layer": "railways",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": {
+                    "stops": [
+                        [
+                            13,
+                            "#d8d5c8"
+                        ],
+                        [
+                            16,
+                            "#b3b1a6"
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 2.5,
+                    "stops": [
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            8
+                        ]
+                    ]
+                },
+                "line-dasharray": [
+                    0.3,
+                    1
+                ],
+                "line-opacity": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            13.75,
+                            0
+                        ],
+                        [
+                            14,
+                            1
+                        ]
+                    ]
+                }
+            }
+        }
+    ],
+    "created": "2015-12-28T14:31:45.860Z",
+    "id": "ciiq2cng900gnalkizbqio36n",
+    "modified": "2015-12-30T10:58:45.304Z",
+    "owner": "jec",
+    "draft": false
+}

@@ -1,0 +1,33 @@
+{
+    "formId": "meetingPoint",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "meetingPoint"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "meetingPoint",
+        "properties": {
+          "name": {
+            "title": "Nom",
+            "key": "name",
+            "type": "string",
+            "display": true
+          }
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Point de rencontre",
+          "iconType":"ic_marker_meeting_point",
+          "minZoom":"minZoom19",
+          "catId":3
+        },
+    "defaultTags":{
+          "amenity":"meeting_point"
+        }
+}

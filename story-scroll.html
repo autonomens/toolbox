@@ -1,0 +1,338 @@
+<!doctype><html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Autonomens - Visite en storytelling - Scroll</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://makina-corpus.com/favicon.ico" />
+  
+  <link rel="stylesheet" href="http://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/themes/css/cartodb.css">
+  <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/scroll.css">
+  <script src="http://cartodb.github.io/odyssey.js/vendor/modernizr-2.6.2.min.js"></script>
+  <style>
+    p img{
+      background:#fff;
+    }
+    .oddysey-miniprogressbar{
+      background:#d6e61f!important;
+    }
+    #content a{color:#d6e61f;}
+  </style>
+</head>
+<body>
+  <div id="layout">
+    <!--<div class="progress-bar"></div>-->
+
+    <div class="inner-header">
+      <div id="header"></div>
+    </div>
+
+    <div id="map_pos">
+      <div id="map_container">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <div id="content"></div>
+
+    <div id="credits">
+      <span class="title" id="title">Circuit médiéval à Lectoure</span>
+      <span class="author"><b id="author">Autonomens</b><span>
+    </span></span></div>
+  </div> <!-- layout -->
+
+  <script src="http://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/cartodb.js"></script>
+  <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
+
+  <script>
+    O.Template({
+      init: function() {
+        var baseurl = this.baseurl = 'http://{s}.api.cartocdn.com/base-light/{z}/{x}/{y}.png';
+        var map = this.map = L.map('map',{
+          center: [0, 0],
+          zoom: 4
+        });
+
+        this.map.scrollWheelZoom.disable();
+
+        var basemap = this.basemap = L.tileLayer(baseurl, {
+          attribution: 'data OSM - map CartoDB'
+        }).addTo(map);
+
+        var story = O.Story()
+
+        this.story = story;
+        this.miniprogressbar = O.MiniProgressBar();
+
+        // trigger when  map_pos go out of the screen
+        this.edge = O.Edge(
+          O.Triggers.Scroll().less('map_pos').offset(0),
+          O.Triggers.Scroll().greater('map_pos').offset(0)
+        )
+      },
+
+      update: function(actions) {
+        var self = this;
+
+        this.story.clear();
+
+        if (this.baseurl && (this.baseurl !== actions.global.baseurl)) {
+          this.baseurl = actions.global.baseurl || 'http://0.api.cartocdn.com/base-light/{z}/{x}/{y}.png';
+
+          this.basemap.setUrl(this.baseurl);
+        }
+
+        if (this.cartoDBLayer && ("http://"+self.cartoDBLayer.options.user_name+".cartodb.com/api/v2/viz/"+self.cartoDBLayer.options.layer_definition.stat_tag+"/viz.json" !== actions.global.vizjson)) {
+          this.map.removeLayer(this.cartoDBLayer);
+
+          this.cartoDBLayer = null;
+          this.created = false;
+        }
+
+        if (actions.global.vizjson && !this.cartoDBLayer) {
+          if (!this.created) { // sendCode debounce < vis loader
+            cdb.vis.Loader.get(actions.global.vizjson, function(vizjson) {
+              self.map.fitBounds(vizjson.bounds);
+
+              cartodb.createLayer(self.map, vizjson)
+                .done(function(layer) {
+                  self.cartoDBLayer = layer;
+
+                  var sublayer = layer.getSubLayer(0),
+                      layer_name = layer.layers[0].options.layer_name,
+                      filter = actions.global.cartodb_filter ? " WHERE "+actions.global.cartodb_filter : "";
+
+                  sublayer.setSQL("SELECT * FROM "+layer_name+filter)
+
+                  self.map.addLayer(layer);
+
+                  self._resetActions(actions);
+                }).on('error', function(err) {
+                  console.log("some error occurred: " + err);
+                });
+            });
+
+            this.created = true;
+          }
+
+          return;
+        }
+
+        this._resetActions(actions);
+      },
+
+      _resetActions: function(actions) {
+        // update footer title and author
+        var title_ = actions.global.title === undefined ? '' : actions.global.title,
+            author_ = actions.global.author === undefined ? 'Using' : 'By '+actions.global.author+' ';
+
+        document.getElementById('title').innerHTML = title_;
+        document.getElementById('author').innerHTML = author_;
+        document.title = title_ + " | " + author_ +' Autonomens';
+
+        var TRIGGER_LINE = this.map.getSize().y + 50;
+        this.story.addEvent(
+          this.edge,
+          O.Parallel(
+            O.Actions.CSS($('#map_container')).toggleClass('attachTop'),
+            O.Actions.CSS($('#content')).toggleClass('attachMap'),
+            O.Actions.Debug().log('attach')
+          )
+        )
+
+        // create content
+        var content = '';
+
+        var slide_ = actions[0];
+        $('#header').html(slide_.html());
+
+        this.story
+          .addState(
+            O.Scroll().within($('#header')),
+            slide_(this)
+          );
+
+        for(var i = 1; i < actions.length; ++i) {
+          var slide = actions[i];
+          content += "<div id='s_" + i +"'>" + slide.html() + "</div>";
+        }
+
+        $('#content').html(content);
+
+        // first slide is the header, skip it
+        for(var i = 1; i < actions.length; ++i) {
+          var slide = actions[i];
+          this.story.addState(
+            O.Triggers.Scroll().within('s_' + i).offset(TRIGGER_LINE),
+            O.Parallel(
+              slide(this),
+              this.miniprogressbar.percent(100*i/(actions.length - 1))
+            )
+          )
+        }
+
+        if(window.scrollY === 0) {
+          this.story.go(0);
+        }
+      }
+    });
+  </script>
+
+
+<script id="md_template" type="text/template">```
+-baseurl: "https://2.maps.nlp.nokia.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=eng&token=A7tBPacePg9Mj_zghvKt9Q&app_id=KuYppsdXZznpffJsKT24"
+-title: "Circuit médiéval de Lectoure (Gers)"
+-author: "Autonomens"
+```
+
+# Circuit médiéval de Lectoure (Gers)
+```
+- center: [43.9340, 0.6232]
+- zoom: 17
+L.marker([43.9340, 0.6232]).actions.addRemove(S.map)
+```
+Bienvenue !
+
+Point de départ du circuit
+
+
+![Ville de Lectoure](http://www.lectoure.fr/themes/danland/images/logo.gif)
+
+# Départ depuis la Cathédrale
+```
+- center: [43.9338, 0.6242]
+- zoom: 17
+L.marker([43.9338, 0.6242]).actions.addRemove(S.map)
+```
+![Cathédrale](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVR73/322010/IVR73_000681_I_1/VIG/IVR73_20103250174NUCA_V.JPG)
+
+[Cathédrale Saint-Gervais et Saint Protais](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA00038762)
+
+# Maison de Galard
+```
+- center: [43.9343, 0.6221]
+- zoom: 17
+L.marker([43.9343, 0.6221]).actions.addRemove(S.map)
+```
+![Maison de Galard](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322011/IVC32208_000008_I_1/VIG/IVC32208_20113200379NUCA_V.JPG)
+
+[Maison de Galard](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA32001113)
+
+# Sénéchaussée
+```
+- center: [43.9349, 0.6204]
+- zoom: 17
+L.marker([43.9349, 0.6204]).actions.addRemove(S.map)
+```
+Le long du parcours vous aurez des exemples des hautes maisons en pierre.
+
+Arrivée au point :
+
+La porte et la croisée de cette façade sont les vestiges visibles du siège de la Sénéchaussée établie par Louis XI
+
+![Sénéchaussée](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322010/IVC32208_000004_I_1/VIG/IVC32208_20103200274NUCA_V.JPG?1428584110068)
+
+# Édifice long de 21 m
+```
+- center: [43.9352, 0.6198]
+- zoom: 17
+L.marker([43.9352, 0.6198]).actions.addRemove(S.map)
+```
+À l'Est de l'église des Cordeliers se site cet [édifice non-identifié](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA32001024)
+
+![édifice non-identifié](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322009/IVC32208_000001_I_1/VIG/IVC32208_20093200305NUCA_V.JPG)
+
+# Église du couvent des Cordeliers
+```
+- center: [43.9351, 0.6194]
+- zoom: 17
+L.marker([43.9351, 0.6194]).actions.addRemove(S.map)
+```
+![Église Cordelier](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322009/IVC32208_000001_I_1/VIG/IVC32208_20093200286NUCA_V.JPG?1428587051007)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA32001029)
+
+# Couvent des Cordeliers
+```
+- center: [43.9352, 0.6192]
+- zoom: 17
+L.marker([43.9352, 0.6192]).actions.addRemove(S.map)
+```
+![Couvent des Cordeliers](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322009/IVC32208_000001_I_1/VIG/IVC32208_20093200270NUCA_V.JPG?1428587054404)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA00038766)
+
+# Château des Comtes d'Armagnac
+```
+- center: [43.9362, 0.6156]
+- zoom: 17
+L.marker([43.9362, 0.6156]).actions.addRemove(S.map)
+```
+![Château des Comtes d'Armagnac](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322010/IVC32208_000004_I_1/VIG/IVC32208_20103200286NUCA_V.JPG?1428585147984)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA00038777)
+
+# Couvent des Carmes
+```
+- center: [43.9341, 0.6194]
+- zoom: 17
+L.marker([43.9341, 0.6194]).actions.addRemove(S.map)
+```
+![Couvent des Carmes](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322013/IVC32208_000012_I_1/VIG/IVC32208_20133200169NUCA_V.JPG?1428585452428)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA00038764)
+
+# Église du Saint-Esprit
+```
+- center: [43.9339, 0.6196]
+- zoom: 17
+L.marker([43.9339, 0.6196]).actions.addRemove(S.map)
+```
+![Église du Saint-Esprit](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322012/IVC32208_000010_I_1/VIG/IVC32208_20123200143NUCA_V.JPG)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA32001117)
+
+# Voûte peinte
+```
+- center: [43.9338, 0.6214]
+- zoom: 17
+L.marker([43.9338, 0.6214]).actions.addRemove(S.map)
+```
+![Voûte peinte](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//INV/DPT32-2002/VIG/IVR73_02320017NUC_V.JPG)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IM32000406)
+
+# Tour d'Albinhac
+```
+- center: [43.9340, 0.6220]
+- zoom: 17
+L.marker([43.9340, 0.6220]).actions.addRemove(S.map)
+```
+![Tour d'Albinhac](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322010/IVC32208_000004_I_1/VIG/IVC32208_20103200271NUCA_V.JPG?1428586439810)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA00038772)
+
+# Fontaine de Fontélie
+```
+- center: [43.9326, 0.6238]
+- zoom: 17
+L.marker([43.9326, 0.6238]).actions.addRemove(S.map)
+```
+![Fontaine de Fontélie](http://patrimoines.midipyrenees.fr/fileadmin/img/renabl//IVC32208/322013/IVC32208_000013_I_1/VIG/IVC32208_20133200194NUCA_V.JPG)
+
+[en savoir plus](http://patrimoines.midipyrenees.fr/fr/rechercher/recherche-base-de-donnees/index.html?notice=IA00038818)
+
+# Le circuit est terminé !
+```
+- center: [43.9336, 0.6245]
+- zoom: 14
+L.marker([43.9336, 0.6245]).actions.addRemove(S.map)
+```
+Vous serez émerveillés par le charme des nombreuses maisons en pierre qui jalonnent le circuit d'environ 2 km.
+
+Bien des secrets se cachent dans ces bâtiments ! À vous de les découvrir...
+
+[Sources de cette présentation](http://patrimoines.midipyrenees.fr/cartographie-interactive/randonnees-patrimoine/lectoure-medieval/index.html)
+
+</script></body></html>

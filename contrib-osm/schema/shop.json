@@ -1,0 +1,193 @@
+{
+    "formId": "shop",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "shop"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "shop",
+        "properties": {
+          "shop": {
+            "title": "Commerce",
+            "type": "string",
+            "key": "shop",
+            "display": true
+          }
+        }
+    },
+    "form": [
+      {
+        "key": "shop",
+        "type": "select",
+        "titleMap": [
+          {
+            "value": "bag",
+            "name": "Bagagerie"
+          },
+          {
+            "value": "jewelry",
+            "name": "Bijouterie"
+          },
+          {
+            "value": "butcher",
+            "name": "Boucher"
+          },
+          {
+            "value": "bakery",
+            "name": "Boulangerie"
+          },
+          {
+            "value": "doityourself",
+            "name": "Bricolage"
+          },
+          {
+            "value": "tobacco",
+            "name": "Tabac"
+          },
+          {
+            "value": "gift",
+            "name": "Boutique de cadeaux"
+          },
+          {
+            "value": "wine",
+            "name": "Caviste"
+          },
+          {
+            "value": "shoes",
+            "name": "Chaussures"
+          },
+          {
+            "value": "chocolate",
+            "name": "Chocolatier"
+          },
+          {
+            "value": "hairdresser",
+            "name": "Coiffeur"
+          },
+          {
+            "value": "car",
+            "name": "Concessionnaire automobile"
+          },
+          {
+            "value": "chemist",
+            "name": "Droguerie"
+          },
+          {
+            "value": "Florist",
+            "name": "Fleuriste"
+          },
+          {
+            "value": "Cheese",
+            "name": "Fromager"
+          },
+          {
+            "value": "car_repair",
+            "name": "Garage automobile"
+          },
+          {
+            "value": "department_store",
+            "name": "Grand magasin"
+          },
+          {
+            "value": "kiosk",
+            "name": "Kiosque à journaux"
+          },
+          {
+            "value": "laundry",
+            "name": "Laverie"
+          },
+          {
+            "value": "books",
+            "name": "Librairie"
+          },
+          {
+            "value": "furniture",
+            "name": "Mobilier d'intérieur"
+          },
+          {
+            "value": "watches",
+            "name": "Montres"
+          },
+          {
+            "value": "optician",
+            "name": "Opticien"
+          },
+          {
+            "value": "cosmetics",
+            "name": "Parfumerie"
+          },
+          {
+            "value": "pastry",
+            "name": "Pâtisserie"
+          },
+          {
+            "value": "seafood",
+            "name": "Poissonnier"
+          },
+          {
+            "value": "dry_cleaning",
+            "name": "Pressing"
+          },
+          {
+            "value": "greengrocer",
+            "name": "Primeur fruits/légumes"
+          },
+          {
+            "value": "hardware",
+            "name": "Quincaillerie"
+          },
+          {
+            "value": "copyshop",
+            "name": "Reprographie"
+          },
+          {
+            "value": "beauty",
+            "name": "Salon de beauté"
+          },
+          {
+            "value": "tattoo",
+            "name": "Salon de tatouage"
+          },
+          {
+            "value": "locksmith",
+            "name": "Serrurier"
+          },
+          {
+            "value": "convenience",
+            "name": "Supérette"
+          },
+          {
+            "value": "supermarket",
+            "name": "Supermarché/Hypermarché"
+          },
+          {
+            "value": "mobile_phone",
+            "name": "Téléphonie"
+          },
+          {
+            "value": "bicycle",
+            "name": "Vélo"
+          },
+          {
+            "value": "clothes",
+            "name": "Vêtements"
+          }
+        ]
+      }
+    ],
+    "specifics":{
+          "poiName":"Magasin",
+          "iconType":"ic_marker_shop",
+          "minZoom":"minZoom17",
+          "catId":4
+    },
+    "defaultTags":{
+      "room":"shop"
+    },
+    "extensionTags":{
+      "shop":"kiosk;convenience;bakery;pastry;florist;tobacco;chocolate;cheese;greengrocer;butcher;seafood;wine;department_store;supermarket;clothes;shoes;bag;jewelry;watches;beauty;chemist;cosmetics;optician;beauty;tattoo;doityourself;hardware;locksmith;furniture;copyshop;dry_cleaning;laundry;hairdresser"
+    }
+}

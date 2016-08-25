@@ -1,0 +1,40 @@
+{
+  "formId": "postPickup",
+  "version": 1,
+  "action": [
+    {
+      "title": "postPickup"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "postPickup",
+    "properties": {
+      "capacity": {
+        "title": "Nombre de places",
+        "key": "capacity",
+        "type": "string",
+        "display": true
+      },
+      "operator": {
+        "title": "Gestionnaire",
+        "type": "string",
+        "key": "operator",
+        "display": true,
+        "arrayValue":["SNCF","RATP"]
+      }
+    }
+  },
+  "form": [
+    "capacity"
+  ],
+  "specifics": {
+    "poiName": "Retrait de colis postaux",
+    "iconType": "ic_marker_post_pickup",
+    "minZoom": "minZoom19",
+    "catId": 3
+  },
+  "defaultTags": {
+    "amenity": "post_pickup"
+  }
+}

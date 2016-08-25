@@ -1,0 +1,27 @@
+{
+    "formId": "assemblyPoint",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "assemblyPoint"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "assemblyPoint",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Rassemblement d'urgence",
+          "iconType":"ic_marker_emergency_point",
+          "minZoom":"minZoom17",
+          "catId":6
+        },
+    "defaultTags":{
+          "emergency":"assembly_point"
+        }
+}

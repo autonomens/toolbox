@@ -1,0 +1,61 @@
+{
+    "formId": "waitingRoom",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "waitingRoom"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "waitingRoom",
+        "properties": {
+          "wheelchair": {
+            "title": "Accès fauteuil roulant",
+            "type": "string",
+            "key": "wheelchair",
+            "display": true
+          },
+          "helpWheelChair": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Accès fauteuil roulant",
+            "display": false
+          }
+        }
+    },
+    "form": [
+        {
+          "key": "helpWheelChair",
+          "type": "help"
+        },
+        {
+          "key": "wheelchair",
+          "type": "radios",
+          "titleMap": [
+            {
+              "value": "yes",
+              "name": "Complet"
+            },
+            {
+              "value": "limited",
+              "name": "Restreint"
+            },
+            {
+              "value": "no",
+              "name": "Impossible"
+            }
+          ]
+        }
+    ],
+    "specifics":{
+          "poiName":"Salle d'attente",
+          "iconType":"ic_marker_room_waiting",
+          "minZoom":"minZoom17",
+          "catId":2
+        },
+    "defaultTags":{
+          "room":"waiting",
+          "indoor":"room"
+        }
+}

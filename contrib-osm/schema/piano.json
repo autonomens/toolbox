@@ -1,0 +1,27 @@
+{
+    "formId": "piano",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "piano"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "piano",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Piano",
+          "iconType":"ic_marker_piano",
+          "minZoom":"minZoom19",
+          "catId":7
+        },
+    "defaultTags":{
+          "amenity":"piano"
+        }
+}

@@ -1,0 +1,114 @@
+{
+    "formId": "restaurant",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "restaurant"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "restaurant",
+        "properties": {
+          "amenity": {
+            "title": "Type de restaurant",
+            "type": "string",
+            "key" : "amenity",
+            "display":true
+          },
+          "helpType": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Type de restaurant",
+            "display":false
+          },
+          "name": {
+            "title": "Nom",
+            "key": "name",
+            "type": "string",
+            "display": true
+          },
+          "addr:housenumber": {
+            "title": "Numéro du bâtiment",
+            "key": "addr:housenumber",
+            "type": "string",
+            "display": true
+          },
+          "addr:street": {
+            "title": "Rue",
+            "key": "addr:street",
+            "type": "string",
+            "display": true
+          },
+          "wheelchair": {
+            "title": "Accès fauteuil roulant",
+            "type": "string",
+            "key": "wheelchair",
+            "display": true
+          },
+          "helpWheelChair": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Accès fauteuil roulant",
+            "display": false
+          }
+        }
+    },
+    "form": [
+      {
+        "key": "helpType",
+        "type": "help"
+      },
+      {
+        "key": "amenity",
+        "type": "radios",
+        "titleMap": [
+          {
+            "value": "fast_food",
+            "name": "Fast food"
+          },
+          {
+            "value": "restaurant",
+            "name": "Restaurant"
+          }
+          ]
+      },
+      "name",
+      "addr:housenumber",
+      "addr:street",
+      {
+        "key": "helpWheelChair",
+        "type": "help"
+      },
+      {
+        "key": "wheelchair",
+        "type": "radios",
+        "titleMap": [
+          {
+            "value": "yes",
+            "name": "Complet"
+          },
+          {
+            "value": "limited",
+            "name": "Restreint"
+          },
+          {
+            "value": "no",
+            "name": "Impossible"
+          }
+        ]
+      }
+    ],
+    "specifics":{
+          "poiName":"Restaurant",
+          "iconType":"ic_marker_restaurant",
+          "minZoom":"minZoom17",
+          "catId":4
+    },
+    "defaultTags":{
+      "room":"shop"
+    },
+    "extensionTags":{
+      "amenity":"restaurant;fast_food"
+    }
+}

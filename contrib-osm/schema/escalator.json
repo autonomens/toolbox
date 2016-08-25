@@ -1,0 +1,70 @@
+{
+    "formId": "escalator",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "escalator"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "escalator",
+        "properties": {
+          "ref": {
+            "title": "Numéro de référence",
+            "key": "ref",
+            "type": "string",
+            "display": true
+          },
+          "handrail": {
+            "title": "Rambarde",
+            "type": "string",
+            "key": "handrail",
+            "display": true
+          },
+          "helpHandrail": {
+            "title": "Help Message",
+            "type": "string",
+            "description": "Rambarde",
+            "display": false
+          }
+        }
+    },
+    "form": [
+      "ref",
+      {
+        "key": "helpHandrail",
+        "type": "help"
+      },
+      {
+        "key": "handrail",
+        "type": "radios",
+        "titleMap": [
+          {
+            "value": "yes",
+            "name": "Un côté"
+          },
+          {
+            "value": "double",
+            "name": "Deux côtés"
+          },
+          {
+            "value": "no",
+            "name": "Non"
+          }
+        ]
+      }
+    ],
+    "specifics":{
+          "poiName":"Escalator",
+          "iconType":"ic_marker_highway_elevator",
+          "minZoom":"minZoom17",
+          "catId":5
+    },
+    "defaultTags":{
+      "highway":"steps"
+    },
+    "extensionTags":{
+      "conveying":"yes;forward;backward;reversible"
+    }
+}

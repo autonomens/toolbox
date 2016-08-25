@@ -1,0 +1,27 @@
+{
+    "formId": "turnstile",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "turnstile"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "turnstile",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Tourniquet",
+          "iconType":"ic_marker_turnstile",
+          "minZoom":"minZoom19",
+          "catId":5
+        },
+    "defaultTags":{
+          "barrier":"turnstile"
+        }
+}

@@ -1,0 +1,27 @@
+{
+    "formId": "defibrillator",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "defibrillator"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "defibrillator",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Défibrillateur",
+          "iconType":"ic_marker_defibrillator",
+          "minZoom":"minZoom19",
+          "catId":6
+        },
+    "defaultTags":{
+          "emergency":"defibrillator"
+        }
+}

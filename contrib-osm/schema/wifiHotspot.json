@@ -1,0 +1,27 @@
+{
+    "formId": "wifiHotspot",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "wifiHotspot"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "wifiHotspot",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Borne Wifi",
+          "iconType":"ic_marker_wlan",
+          "minZoom":"minZoom19",
+          "catId":3
+        },
+    "defaultTags":{
+          "internet_access":"wlan"
+        }
+}

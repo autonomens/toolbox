@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_URI} .*\.hml$
+  RewriteRule ^(.*).hml$ /toolbox/$1.html [R=301,L,QSA]
+</IfModule>

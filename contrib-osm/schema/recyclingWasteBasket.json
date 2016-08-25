@@ -1,0 +1,45 @@
+{
+    "formId": "recyclingWasteBasket",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "recyclingWasteBasket"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "recyclingWasteBasket",
+        "properties": {
+          "recycling:paper": {
+            "title" : "Papier",
+            "type": "boolean",
+            "key" : "recycling:paper",
+            "display":true
+          },
+          "recycling:plastic": {
+            "title" : "Plastique",
+            "type": "boolean",
+            "key" : "recycling:plastic",
+            "display":true
+          },
+          "recycling:glass": {
+            "title" : "Verre",
+            "type": "boolean",
+            "key" : "recycling:glass",
+            "display":true
+          }
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Poubelle de recyclage",
+          "iconType":"ic_marker_recycling",
+          "minZoom":"minZoom19",
+          "catId":7
+        },
+    "defaultTags":{
+          "amenity":"recycling"
+        }
+}

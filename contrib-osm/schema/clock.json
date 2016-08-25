@@ -1,0 +1,27 @@
+{
+    "formId": "clock",
+    "version": 1,
+    "action" : [
+        {
+            "title" : "clock"
+        }
+    ],
+    "schema": {
+        "type": "object",
+        "title": "clock",
+        "properties": {
+        }
+    },
+    "form": [
+        "*"
+    ],
+    "specifics":{
+          "poiName":"Horloge",
+          "iconType":"ic_marker_clock",
+          "minZoom":"minZoom19",
+          "catId":7
+        },
+    "defaultTags":{
+          "amenity":"clock"
+        }
+}
