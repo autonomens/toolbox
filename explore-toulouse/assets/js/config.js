@@ -1,1 +1,0 @@
-  var max_bounds = new L.LatLngBounds(new L.LatLng(43.588, 1.418), new L.LatLng(43.615, 1.462));
