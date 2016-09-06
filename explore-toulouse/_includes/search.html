@@ -1,0 +1,32 @@
+<div id="search" class="row">
+	<div id="search-container" class="large-5 columns">
+		<form id="search-address" class="row collapse">
+			<div id="search-label" class="pull-left">
+				<img src="assets/images/drapeau.png" alt="Drapeau" />
+				<label for="search-input" class="right inline">Rechercher</label>
+			</div>
+			<div class="small-6 columns">
+				<div id="zero-results" class="icon-exclamation-sign"></div>
+				<input type="text" placeholder="exemple : 21 Rue de Metz, Toulouse" name="search" id="search-input"/>
+				<ul id="choice-list" class="f-dropdown medium">
+				</ul>
+			</div>
+			<div class="pull-left">
+				<button id="search-button" type="submit" class="button postfix">OK</button>
+			</div>
+		</form>
+	</div>
+	<div class="large-7 columns compare-with-container">
+		<form id="compare-with">
+			Comparer <span class="label-white">2014</span> avec  
+			<span class="label-black">
+				<input type="checkbox" id="compare-ortho1680" name="compare-layer" value="1680" />
+				<label for="compare-ortho1680">1680</label>
+			</span>
+			<span class="label-black">
+				<input type="checkbox" id="compare-ortho1830" name="compare-layer" value="1830" />
+				<label for="compare-ortho1830">1830</label>
+			</span>
+		</form>
+	</div>
+</div>
