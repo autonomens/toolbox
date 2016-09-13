@@ -751,11 +751,11 @@ header {
 
 #logo, #logoDetailView {
 	float: left;
-	cursor: pointer;
 }
 
 #logo img, #logoDetailView img {
-	margin-top: 28px;
+	margin-top: 8px;
+	position: absolute;
 }
 
 #logo h1, #logoDetailView h1 {
@@ -766,6 +766,8 @@ header {
 	line-height: 1.5;
 	letter-spacing: -0.05em;
 	text-rendering: optimizeLegibility;
+	padding-left: 60px !important;
+	text-decoration: none;
 }
 
 #logo h2, #logoDetailView h2 {
@@ -777,6 +779,8 @@ header {
 	letter-spacing: -0.07em;
 	text-rendering: optimizeLegibility;
 	margin-top: -23px;
+	padding-left: 60px !important;
+	text-decoration: none;
 }
 
 a, button {
