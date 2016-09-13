@@ -38,56 +38,14 @@ $(document).ready(function()
 		$(".projectThumbnail").unbind("mouseleave");
 	}
 
-	// Page navigation
-	var isWorkCurrentPage = true;
-	var isAboutCurrentPage = false;
-
 	$("#logoDetailView").click(function()
 	{
 		window.location = "../../index.html";
 	});
 
-	$("#workPage, #logo").click(function()
-		{
-			if(!isWorkCurrentPage)
-			{
-				isWorkCurrentPage = true;
-				isAboutCurrentPage = false;
-				$("#workPage").attr("class", "currentPage");
-				$("#aboutPage").removeClass("currentPage");
-
-				$("#about").fadeOut(500, function()
-				{
-					$("#work").fadeIn(500);
-				});
-			}
-		});
-
-	$("#aboutPage").click(function()
-		{
-			if(!isAboutCurrentPage)
-			{
-				isAboutCurrentPage = true;
-				isWorkCurrentPage = false;
-				$("#aboutPage").attr("class", "currentPage");
-				$("#workPage").removeClass("currentPage");
-
-				$("#work").fadeOut(500, function()
-				{
-					$("#about").fadeIn(500);
-				});
-			}
-		});
-
-	// Make Work page current page
-	$("#workPage").attr("class", "currentPage");
-
-	// Hide About page
-	//$("#about").css("display", "none");
-	$("#about").fadeOut(0);
 
 	// For site fade site in
-	$(".container").css("display", "none");
+	// $(".container").css("display", "none");
 
 });
 

@@ -285,7 +285,7 @@ Contents
 	.add-bottom { margin-bottom: 20px !important; }
 
 /*===================================================================================================
-10) Grid
+10) Responsive
 ===================================================================================================*/
 
 .container {
@@ -294,27 +294,35 @@ Contents
 	margin: 0 auto;
 }
 
-.row {
-}
-
-.col-100, .col-50, .col-33, .col-25 {
-	box-sizing: border-box;
+.row, .col {
 	padding-left: 15px;
 	padding-right: 15px;
-	float: left;
-	width: 100%;
 }
 
+.col {
+	box-sizing: border-box;
+	float: left;
+}
 
-@media only screen and (min-width: 480px) {
-	.col-50 {
-		width: 50%;
-	}
-	.col-25 {
-		width: 50%;
-	}
+.col-33 {
+	width: 33%;
+}
+.col-50 {
+	width: 50%;
+}
+
+@media only screen and (max-width: 960px) {
 	.col-33 {
-		width: 33.33%;
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.col-33 {
+		width: 100%;
+	}
+	.col-50 {
+		width: 100%;
 	}
 }
 
@@ -852,11 +860,11 @@ nav ul li button:hover, nav ul li button:active, nav ul li button:focus, nav ul 
 }
 
 .project {
-	min-width: 335px;
 	margin-bottom: 40px;
 	position: relative;
 	overflow: hidden;
 }
+
 
 .projectThumbnail {
 	max-width: 100%;
